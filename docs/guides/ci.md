@@ -182,4 +182,4 @@ async def test_layout(tui, snapshot):
 Without these, snapshots may differ between platforms due to locale,
 timezone, or terminal-capability differences.
 
-Next: [Use with AI agents →](claude-skills.md)
+Next: [Use with AI agents →](ai-agents.md)

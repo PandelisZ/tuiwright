@@ -120,3 +120,12 @@ If you're invoked here as a slash command, these are loaded:
 - `/tuiwright-debug` — investigate a flaky or hanging test
 
 See `.claude/skills/<name>/SKILL.md` for each.
+
+## Cross-agent compatibility
+
+The same skills are mirrored under `.agents/skills/` for vendor-neutral
+loading (Codex CLI, Cursor, Aider, etc), and the framework's overall
+guidance lives in `AGENTS.md` at the repo root (the
+[agents.md](https://agents.md) cross-vendor convention) for runtimes
+that don't read `CLAUDE.md`. If you modify a skill in `.claude/`,
+mirror the change to `.agents/`. They're kept identical.

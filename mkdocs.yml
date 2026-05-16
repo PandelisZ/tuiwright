@@ -136,6 +136,6 @@ nav:
       - Writing good tests: guides/writing-tests.md
       - Debugging flakes: guides/debugging.md
       - CI integration: guides/ci.md
-      - Use with AI agents: guides/claude-skills.md
+      - Use with AI agents: guides/ai-agents.md
   - API reference: api.md
   - Changelog: changelog.md
