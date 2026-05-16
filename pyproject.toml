@@ -42,10 +42,10 @@ examples = [
 tuiwright = "tuiwright.pytest_plugin"
 
 [project.urls]
-Homepage = "https://github.com/pandelisz/tuiwright"
-Repository = "https://github.com/pandelisz/tuiwright"
-Issues = "https://github.com/pandelisz/tuiwright/issues"
-Changelog = "https://github.com/pandelisz/tuiwright/blob/master/CHANGELOG.md"
+Homepage = "https://github.com/PandelisZ/tuiwright"
+Repository = "https://github.com/PandelisZ/tuiwright"
+Issues = "https://github.com/PandelisZ/tuiwright/issues"
+Changelog = "https://github.com/PandelisZ/tuiwright/blob/master/CHANGELOG.md"
 
 [build-system]
 requires = ["uv_build>=0.11.7,<0.12.0"]

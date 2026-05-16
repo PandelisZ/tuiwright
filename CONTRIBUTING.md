@@ -7,7 +7,7 @@ passes zero-flake across at least five consecutive runs**.
 ## Dev setup
 
 ```bash
-git clone https://github.com/pandelisz/tuiwright.git
+git clone https://github.com/PandelisZ/tuiwright.git
 cd tuiwright
 uv sync --all-extras --group dev
 uv run pytest                                # ~5 s
@@ -93,7 +93,7 @@ git push --tags
 
 ## Reporting bugs
 
-Open an issue at https://github.com/pandelisz/tuiwright/issues with:
+Open an issue at https://github.com/PandelisZ/tuiwright/issues with:
 
 - the command that spawns your TUI
 - the expected vs actual screen text (or attach the cast file from a

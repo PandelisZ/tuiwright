@@ -38,5 +38,5 @@ Initial release.
 - 84 self-tests (input encoders, screen model, emulator, end-to-end
   session against a hand-rolled fixture TUI, snapshot round-trip).
 
-[Unreleased]: https://github.com/pandelisz/tuiwright/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/pandelisz/tuiwright/releases/tag/v0.1.0
+[Unreleased]: https://github.com/PandelisZ/tuiwright/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/PandelisZ/tuiwright/releases/tag/v0.1.0
