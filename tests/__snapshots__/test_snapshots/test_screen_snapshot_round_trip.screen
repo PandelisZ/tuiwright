@@ -1,0 +1,15 @@
+# tuiwright screen snapshot v1
+# cols=40 rows=10 cursor=(5,7) hidden modes=[1002, 1004, 1006, 1049, 2004]
++────────────────────────────────────────+
+|Ready                                   |
+|Press 'q' to quit. Ctrl-S to save. size=|
+|Echo:                                   |
+|                                        |
+|                                        |
+|Events:                                 |
+|                                        |
+|                                        |
+|                                        |
+|                                        |
++────────────────────────────────────────+
+{}
