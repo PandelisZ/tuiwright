@@ -81,6 +81,9 @@ ergonomic**.
   snapshots (via `agg` + `pixelmatch`).
 - :material-test-tube: **First-class pytest.** `tui` fixture, marker,
   CLI flags, asciinema cast retention on failure.
+- :material-record-circle-outline: **Record &amp; generate.** Drive your
+  TUI interactively under `tuiwright record`; codegen produces a
+  ready-to-commit pytest test from the recording.
 
 ## Get started in 30 seconds
 

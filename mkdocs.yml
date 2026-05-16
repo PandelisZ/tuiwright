@@ -115,6 +115,7 @@ nav:
       - Install: install.md
       - Quickstart: quickstart.md
       - Hello, TUI: hello-tui.md
+      - Record a test: recording.md
   - Concepts:
       - Architecture: concepts/architecture.md
       - Sessions: concepts/sessions.md
