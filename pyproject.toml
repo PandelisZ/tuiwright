@@ -1,0 +1,75 @@
+[project]
+name = "tuiwright"
+version = "0.1.0"
+description = "Playwright-style end-to-end testing for TUI applications. Drives any TUI binary via a real PTY + terminal emulator, with cell-grid and PNG snapshot regression."
+authors = [
+    { name = "Pandelis Zembashis", email = "p@ndel.is" }
+]
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+readme = "README.md"
+keywords = ["tui", "testing", "terminal", "pty", "snapshot", "ratatui", "crossterm", "pytest", "e2e", "playwright"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Framework :: Pytest",
+    "Intended Audience :: Developers",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Terminals",
+    "Typing :: Typed",
+]
+dependencies = [
+    "ptyprocess>=0.7.0",
+    "pyte>=0.8.2",
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "syrupy>=4.6",
+    "pillow>=10.0",
+    "pixelmatch>=0.3.0",
+]
+
+[project.optional-dependencies]
+examples = [
+    "urwid>=2.6",
+]
+
+[project.entry-points.pytest11]
+tuiwright = "tuiwright.pytest_plugin"
+
+[project.urls]
+Homepage = "https://github.com/pandelisz/tuiwright"
+Repository = "https://github.com/pandelisz/tuiwright"
+Issues = "https://github.com/pandelisz/tuiwright/issues"
+Changelog = "https://github.com/pandelisz/tuiwright/blob/master/CHANGELOG.md"
+
+[build-system]
+requires = ["uv_build>=0.11.7,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "pytest-timeout>=2.3",
+    "ruff>=0.6",
+    "mypy>=1.10",
+    "urwid>=2.6",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "B", "UP", "RUF"]
+ignore = ["E501"]

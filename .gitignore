@@ -1,0 +1,22 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.python-version
+
+# Tooling
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+
+# tuiwright artifacts
+trace/
+.tuiwright-cache/
+**/__snapshots__/*.actual.png
+**/__snapshots__/*.diff.png
