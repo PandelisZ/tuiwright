@@ -407,18 +407,39 @@ class TuiSession:
         *,
         quiet_ms: int | None = None,
         timeout: float | None = None,
+        ignore_cursor: bool = True,
     ) -> None:
-        """Wait until no new output has arrived for ``quiet_ms``."""
+        """Wait until the *visible* screen state has stopped changing.
+
+        This is content-based, not byte-based: a TUI that pulses a
+        cursor blink, ticks a spinner, or polls a status indicator will
+        still settle as long as the rendered text + attributes are
+        stable. Set ``ignore_cursor=False`` to also require the cursor
+        position / visibility to stop changing (rarely needed; cursor
+        blink is the most common reason for false negatives).
+        """
         quiet = (quiet_ms if quiet_ms is not None else self.config.stable_quiet_ms) / 1000.0
         timeout = timeout if timeout is not None else self.config.default_timeout
         deadline = time.monotonic() + timeout
-        last_rev = self._emu.revision
+
+        def fingerprint() -> tuple[object, ...]:
+            screen = self.screen
+            # Compare the cell grid (chars + attrs) and the active DEC
+            # modes. Cursor visibility / position is usually noise — we
+            # only include it when the caller asks.
+            base: tuple[object, ...] = (screen.cells, screen.modes)
+            if not ignore_cursor:
+                return (*base, screen.cursor)
+            return base
+
+        last_state = fingerprint()
         last_change = time.monotonic()
         while True:
             await asyncio.sleep(self.config.poll_interval)
             now = time.monotonic()
-            if self._emu.revision != last_rev:
-                last_rev = self._emu.revision
+            current = fingerprint()
+            if current != last_state:
+                last_state = current
                 last_change = now
             elif now - last_change >= quiet:
                 return
