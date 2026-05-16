@@ -1,0 +1,141 @@
+site_name: tuiwright
+site_description: Playwright-style end-to-end testing for terminal UI applications.
+site_url: https://pandelisz.github.io/tuiwright/
+repo_url: https://github.com/PandelisZ/tuiwright
+repo_name: PandelisZ/tuiwright
+edit_uri: edit/master/docs/
+
+theme:
+  name: material
+  language: en
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - content.tooltips
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/PandelisZ/tuiwright
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/tuiwright/
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: google
+            show_source: true
+            show_signature_annotations: true
+            separate_signature: true
+            line_length: 80
+            members_order: source
+            heading_level: 3
+            show_root_heading: true
+            show_root_full_path: false
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            filters: ["!^_"]
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      check_paths: true
+      base_path: [docs, .]
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+nav:
+  - Home: index.md
+  - Get started:
+      - Install: install.md
+      - Quickstart: quickstart.md
+      - Hello, TUI: hello-tui.md
+  - Concepts:
+      - Architecture: concepts/architecture.md
+      - Sessions: concepts/sessions.md
+      - Screens & regions: concepts/screens.md
+      - Waiting (no sleep!): concepts/waiting.md
+  - Input:
+      - Keys: input/keys.md
+      - Mouse: input/mouse.md
+      - Paste: input/paste.md
+      - Resize & focus: input/resize-focus.md
+  - Snapshots:
+      - Cell-grid: snapshots/cell-grid.md
+      - PNG (pixel): snapshots/png.md
+  - Pytest integration:
+      - Fixtures: pytest/fixtures.md
+      - Marker: pytest/marker.md
+      - CLI flags: pytest/cli.md
+  - Guides:
+      - Writing good tests: guides/writing-tests.md
+      - Debugging flakes: guides/debugging.md
+      - CI integration: guides/ci.md
+      - Use with AI agents: guides/claude-skills.md
+  - API reference: api.md
+  - Changelog: changelog.md

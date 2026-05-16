@@ -42,7 +42,8 @@ examples = [
 tuiwright = "tuiwright.pytest_plugin"
 
 [project.urls]
-Homepage = "https://github.com/PandelisZ/tuiwright"
+Homepage = "https://pandelisz.github.io/tuiwright/"
+Documentation = "https://pandelisz.github.io/tuiwright/"
 Repository = "https://github.com/PandelisZ/tuiwright"
 Issues = "https://github.com/PandelisZ/tuiwright/issues"
 Changelog = "https://github.com/PandelisZ/tuiwright/blob/master/CHANGELOG.md"
@@ -59,6 +60,12 @@ dev = [
     "ruff>=0.6",
     "mypy>=1.10",
     "urwid>=2.6",
+]
+docs = [
+    "mkdocs>=1.6",
+    "mkdocs-material>=9.5",
+    "mkdocstrings[python]>=0.27",
+    "pymdown-extensions>=10.0",
 ]
 
 [tool.pytest.ini_options]

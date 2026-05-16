@@ -20,3 +20,4 @@ trace/
 .tuiwright-cache/
 **/__snapshots__/*.actual.png
 **/__snapshots__/*.diff.png
+site/
