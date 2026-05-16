@@ -1,9 +1,14 @@
-# Claude skills bundled with tuiwright
+# Claude skills for tuiwright
 
-This directory ships slash-command skills that make tuiwright easy for
-AI coding agents to operate. Anyone using Claude Code (or another
-agent that honours the `.claude/skills/` convention) will get them
-automatically when they open this repo.
+This directory holds the Claude Code copy of the bundled skills. The
+**canonical** vendor-neutral location is `.agents/skills/` — the
+content here is kept identical for runtimes (Claude Code) that only
+look inside `.claude/`.
+
+If you update a skill, update both `.claude/skills/<name>/SKILL.md`
+**and** `.agents/skills/<name>/SKILL.md`. The duplication is
+intentional — symlinks don't survive shallow clones, Windows
+archives, or several CI cache strategies.
 
 ## Available skills
 
@@ -15,30 +20,22 @@ automatically when they open this repo.
 
 The repo's `CLAUDE.md` is the overall agent-orientation doc — read it
 once to get architecture context before invoking any skill.
+`AGENTS.md` at the repo root carries the same orientation for
+non-Claude agents.
 
-## How agents discover these
+## How Claude Code loads these
 
-Most agent runtimes look for `.claude/skills/<name>/SKILL.md` files
-relative to the working directory. The first line block (the YAML
-front matter with `name:` and `description:`) is the trigger spec.
+Claude Code looks for `.claude/skills/<name>/SKILL.md` files relative
+to the working directory. The first line block (the YAML front matter
+with `name:` and `description:`) is the trigger spec — Claude uses
+the description to decide when to invoke the skill.
 
-If you're using a runtime that doesn't auto-load, you can copy these
-into your own `~/.claude/skills/` directory and they'll work globally.
+If you're using a runtime that doesn't auto-load, copy these into
+your own `~/.claude/skills/` directory and they'll work globally.
 
-## Extending
+## See also
 
-To add a skill, create `.claude/skills/<your-skill>/SKILL.md` with the
-following front matter:
-
-```markdown
----
-name: your-skill
-description: When to invoke this skill — be specific about user phrases.
----
-
-# Skill body…
-```
-
-Keep the body procedural — the goal is to push an agent toward the
-right action, not to teach the framework from scratch (`CLAUDE.md`
-does that).
+- [`../AGENTS.md`](../AGENTS.md) — repo orientation for non-Claude
+  agents
+- [`../.agents/`](../.agents/) — vendor-neutral skill mirror
+- [`../CLAUDE.md`](../CLAUDE.md) — Claude Code repo orientation
