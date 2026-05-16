@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-05-16
+
+### Fixed
+- `wait_for_stable` now fingerprints the **visible** screen state (cell
+  grid + active DEC modes, optionally cursor) instead of counting raw
+  PTY byte arrivals. Any TUI with a periodic cursor blink, animated
+  spinner, or polling status indicator previously made
+  `wait_for_stable` time out unconditionally; it now settles correctly
+  while ignoring purely cosmetic redraws.
+
+### Added
+- `wait_for_stable(ignore_cursor=True)` kwarg (default `True`). Set to
+  `False` to also require the cursor position / visibility to stop
+  changing — rarely needed; cursor blink was the most common cause of
+  the previous false negatives.
+
 ## [0.2.0] - 2026-05-16
 
 Adds `tuiwright record` — an interactive wrapper that records your
@@ -69,6 +85,7 @@ Initial release.
 - 84 self-tests (input encoders, screen model, emulator, end-to-end
   session against a hand-rolled fixture TUI, snapshot round-trip).
 
-[Unreleased]: https://github.com/PandelisZ/tuiwright/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/PandelisZ/tuiwright/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/PandelisZ/tuiwright/releases/tag/v0.2.1
 [0.2.0]: https://github.com/PandelisZ/tuiwright/releases/tag/v0.2.0
 [0.1.0]: https://github.com/PandelisZ/tuiwright/releases/tag/v0.1.0
