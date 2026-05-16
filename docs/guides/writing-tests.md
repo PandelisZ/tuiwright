@@ -3,6 +3,13 @@
 The single biggest predictor of a maintainable TUI test suite is how
 you handle **timing**. Get that right and everything else follows.
 
+!!! tip "Don't want to write tests by hand?"
+
+    Use [`tuiwright record`](../recording.md) to drive the app
+    interactively while it watches; codegen synthesises a test from
+    what you did. The recording-then-edit workflow is often faster
+    than writing from scratch.
+
 ## The golden pattern
 
 ```python

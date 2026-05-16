@@ -165,3 +165,6 @@ talks to a terminal.
   key, mouse button, and modifier combination.
 - The [Guides](guides/writing-tests.md) cover the patterns that scale
   to real-world test suites.
+- [Record a test](recording.md) instead of writing it by hand — let
+  `tuiwright record` watch you drive the app and synthesise the
+  test for you.

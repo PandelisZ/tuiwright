@@ -1,6 +1,6 @@
 [project]
 name = "tuiwright"
-version = "0.1.0"
+version = "0.2.0"
 description = "Playwright-style end-to-end testing for TUI applications. Drives any TUI binary via a real PTY + terminal emulator, with cell-grid and PNG snapshot regression."
 authors = [
     { name = "Pandelis Zembashis", email = "p@ndel.is" }
@@ -40,6 +40,9 @@ examples = [
 
 [project.entry-points.pytest11]
 tuiwright = "tuiwright.pytest_plugin"
+
+[project.scripts]
+tuiwright = "tuiwright.cli:main"
 
 [project.urls]
 Homepage = "https://pandelisz.github.io/tuiwright/"
